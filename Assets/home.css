@@ -5,11 +5,11 @@
 
 .accent {
     background-image: url("Assets/Images/lab_logo.png");
-    background-size: contain;      /* keeps the logo fully visible */
-    background-repeat: no-repeat;  /* prevents tiling */
-    background-position: center;   /* centers the logo */
-    background-color: #607562;     /* fallback color behind the image */
-    height: 150px;                 /* adjust to match the logo height */
+    background-size: contain;     
+    background-repeat: no-repeat; 
+    background-position: center;   
+    background-color: #607562;     
+    height: 150px;               
 }
 
 .gray{
