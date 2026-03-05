@@ -3,13 +3,8 @@
     background-color: #899E8B;
 }
 
-.accent {
-    background-image: url("Assets/Images/lab_logo.png");
-    background-size: contain;     
-    background-repeat: no-repeat; 
-    background-position: center;   
-       
-    height: 1000px;               
+.accent{
+    background-color: #607562;
 }
 
 .gray{
