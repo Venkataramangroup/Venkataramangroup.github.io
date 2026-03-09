@@ -43,7 +43,6 @@
 
 .slideshow img {
     max-width: 60%;
-    height: 50%;
     object-fit: cover;
 }
 .paragraph-box {
