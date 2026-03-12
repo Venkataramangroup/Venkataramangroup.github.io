@@ -1,4 +1,4 @@
-const images = [
+const groupImages = [
   "Assets/Images/group-photo1.jpg",
   "Assets/Images/group-photo3.jpg",
   "Assets/Images/group-photo5.jpg",
@@ -7,12 +7,13 @@ const images = [
   "Assets/Images/group-photo8.jpg",
  ];
 
-let index = 0;
+let groupIndex = 0;
 
 setInterval(() => {
-  index = (index + 1) % images.length;
-  document.getElementById("slide").src = images[index];
+  groupIndex = (groupIndex + 1) % groupImages.length;
+  document.getElementById("slide-group").src = groupImages[groupIndex];
 }, 3000);
+
 
 
 
