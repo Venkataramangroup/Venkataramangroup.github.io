@@ -33,9 +33,18 @@ const pubImages = [
 ];
 
 const pubCaptions = [
-  "Caption for TOC_pub1",
-  "Caption for TOC_pub2",
-  "Caption for TOC_pub3"
+  "Li et al, JACS 2025",
+  "Greenwald et al, Nature Nano 2021",
+  "Li et al, JACS 2023",
+  "Garner, Li, et al, Nature 2018",
+  "Zang et al, Angew Chemie 2019",
+  "Lovat, choi et al, Nature Nano 2017",
+  "Li et al, JACS 2016",
+  "Adak et al, Nano Letters 2015",
+  "Capozzi et al, Nature Nanotechnology 2015",
+  "Li et al JACS 2024",
+  "Su et al, Nature Chemistry 2015",
+  "Li et al, JACS 2015"
 ];
 
 let pubIndex = 0;
@@ -45,6 +54,7 @@ setInterval(() => {
   document.getElementById("slide-pub").src = pubImages[pubIndex];
   document.getElementById("toc-caption").textContent = pubCaptions[pubIndex];
 }, 3000);
+
 
 
 
