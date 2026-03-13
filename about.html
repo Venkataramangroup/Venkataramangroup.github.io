@@ -22,20 +22,25 @@
     <title>Venkataraman Lab</title>
 
     <style>
-        /* Ensures the entire site is centered */
+        /* Centers all main content */
         .page-wrapper {
             max-width: 1100px;
             margin: 0 auto;
+        }
+
+        /* Ensures the olive strips stretch full width */
+        .accent, .base {
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
 
-<div class="page-wrapper">
+<!-- FULL-WIDTH TOP STRIP -->
+<div class="accent p-4 w-100"></div>
 
-    <!-- Accent bar -->
-    <div class="row accent p-4"></div>
+<div class="page-wrapper">
 
     <!-- HEADER -->
     <div class="row base whitetext pt-5 justify-content-center" id="header">
@@ -140,22 +145,20 @@
 
     </div>
 
-    <!-- FOOTER -->
-    <div class="base pt-5 pb-5">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <span class="font-weight-bold">Contact:</span>  
-                Latha Venkataraman, Institute of Science and Technology Austria.
-                <br>Am Campus 1, 3400 Klosterneuburg, Austria
-                <br>Phone: +43 2243 9000 2352; email: latha.venkataraman(at)ist.ac.at
+</div>
 
-                <div>
-                    <img class="img-fluid pt-3" src="Assets/Images/istaimage_orig.jpg">
-                </div>
-            </div>
+<!-- FULL-WIDTH BOTTOM STRIP -->
+<div class="base p-4 w-100">
+    <div class="page-wrapper">
+        <span class="font-weight-bold">Contact:</span>
+        Latha Venkataraman, Institute of Science and Technology Austria.
+        <br>Am Campus 1, 3400 Klosterneuburg, Austria
+        <br>Phone: +43 2243 9000 2352; email: latha.venkataraman(at)ist.ac.at
+
+        <div>
+            <img class="img-fluid pt-3" src="Assets/Images/istaimage_orig.jpg">
         </div>
     </div>
-
 </div>
 
 <!-- Bootstrap JS -->
@@ -163,4 +166,3 @@
 
 </body>
 </html>
-
