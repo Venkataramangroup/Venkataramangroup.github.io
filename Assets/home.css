@@ -1,14 +1,16 @@
 
-.base{
-    background-color: #899E8B;
+.base {
+    background-color: #899E8B;   
 }
 
-.accent{
-    background-color: #607562;
+.accent {
+    background-color: #607562;   
 }
 
-.gray{
-    background-color: #272727;
+.full-width-strip {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .white{
