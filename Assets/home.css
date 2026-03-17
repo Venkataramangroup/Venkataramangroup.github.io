@@ -55,6 +55,9 @@
     max-height: 100%;
 
 }
+.member-photo {
+    margin-bottom: 25px;  
+}
 
 .toc-slideshow img {
     width: 100%;
