@@ -70,17 +70,25 @@
     color: #333;
     text-align: center;
 }
-.nowrap {
-  white-space: nowrap;
+.two-column {
+  display: flex;
+  gap: 40px;
+}
+
+.column {
+  flex: 1;
 }
 
 .member-list {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 2rem;
 }
 
 .member-list li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 6px;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
