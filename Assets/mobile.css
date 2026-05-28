@@ -1,1 +1,251 @@
+/* ================================================================
+   mobile.css — Responsive fixes for Venkataraman Lab website
+   
+   INSTRUCTIONS:
+   1. Save this file as:  Assets/mobile.css
+   2. Add this ONE line to every HTML page (<head>, after home.css):
+      <link rel="stylesheet" href="Assets/mobile.css">
+   ================================================================ */
 
+
+/* ----------------------------------------------------------------
+   FIX 1: Prevent any element from causing horizontal scroll
+   ---------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 2: Reduce the massive p-5 / p-4 padding on mobile
+   These Bootstrap utility classes add 3rem (~48px) per side,
+   leaving almost no space for content on a phone screen.
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  .row.p-5,
+  .row.p-4,
+  .row.p-3 {
+    padding: 0.75rem !important;
+  }
+
+  .pt-5 {
+    padding-top: 1rem !important;
+  }
+
+  .pb-5 {
+    padding-bottom: 1rem !important;
+  }
+
+  /* Give the page-wrapper side padding so text isn't flush to screen edge */
+  .page-wrapper {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 3: Header — stack logo below title on mobile, prevent overflow
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  #header {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding-top: 1rem !important;
+  }
+
+  #header .col-md-8,
+  #header .col-md-4 {
+    text-align: center !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+
+  #header .h1 {
+    font-size: 1.5rem;
+  }
+
+  #header .h4 {
+    font-size: 0.95rem;
+  }
+
+  #header img {
+    max-height: 140px !important;
+    margin: 0.5rem auto 0.75rem;
+    display: block;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 4: Publications page — TOC slideshow image is col-4 (fixed
+   33% on ALL screens). Make it larger on mobile.
+   
+   ALSO EDIT THE HTML: in publications.html, find:
+     <div class="col-4 text-center">
+   and change it to:
+     <div class="col-10 col-md-4 text-center mx-auto">
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  /* Catch the bare col-4 that has the TOC image */
+  .toc-slideshow {
+    width: 100%;
+  }
+
+  /* Override col-4 if you haven't changed the HTML yet */
+  .row.my-4 .col-4.text-center {
+    flex: 0 0 83.333% !important;
+    max-width: 83.333% !important;
+    margin: 0 auto;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 5: Publications year-navigation — years stack one per line
+   because of large row padding leaving too little width, combined
+   with "- " separators that cause awkward breaks.
+   This makes the links display inline and wrap cleanly.
+   ---------------------------------------------------------------- */
+.paragraph a {
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+
+  /* The year nav paragraph */
+  .publications-col .paragraph[style*="text-align:center"]:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px 0;
+    line-height: 2;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 6: Home page — group photo + description paragraph.
+   On mobile the col-md-8 / col-md-4 row already stacks
+   correctly (Bootstrap default), but needs reasonable spacing.
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  .group-slideshow img,
+  #slide-group {
+    width: 100%;
+    height: auto;
+  }
+
+  .paragraph-box {
+    padding-top: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 7: Meetings page — text content is splitting every word
+   onto its own line. Root cause: content sits in a narrow column
+   created by large padding. Padding fix in FIX 2 handles most of
+   it; these rules ensure text wraps normally.
+   ---------------------------------------------------------------- */
+.paragraph,
+.paragraph strong,
+.paragraph font {
+  word-break: normal;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+@media (max-width: 767px) {
+
+  /* Meeting room / schedule text */
+  .col-md-10,
+  .col-md-8,
+  .col-md-12 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 8: Members page — photo + bio side-by-side layout
+   Stack vertically on mobile.
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  /* Bootstrap cols used in members layout */
+  .members-row .col-md-3,
+  .members-row .col-md-4,
+  .members-row .col-3,
+  .members-row .col-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+  }
+
+  .members-row img {
+    max-width: 180px;
+    margin: 0 auto 0.75rem;
+    display: block;
+  }
+
+  /* Numbered list items (thesis page) */
+  ol li, .thesis-list li {
+    margin-bottom: 1.5rem;
+    overflow-wrap: break-word;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 9: Navigation bar — already uses Bootstrap navbar-toggler
+   (hamburger) on mobile, but ensure it's visible and styled right.
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-toggler-icon {
+    filter: brightness(2);
+  }
+
+  .navbar-nav .nav-item {
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   FIX 10: General text / inline images that have raw width values
+   like style="width:450" (missing px unit — ignored by browsers,
+   so image renders at natural size). Cap them all.
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+
+  .wsite-image img,
+  .wsite-image-border-thick img,
+  .wsite-image-border-none img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
