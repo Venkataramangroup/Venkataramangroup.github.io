@@ -99,17 +99,18 @@ html, body {
 }
 
 @media (max-width: 600px) {
-    .row {
+    .row:not(.carousel-inner):not(.slideshow-row) {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         gap: 12px;
     }
 
-    .row img {
+    .row:not(.carousel-inner):not(.slideshow-row) img {
         max-width: 120px;
         height: auto;
     }
 }
+
 
 
