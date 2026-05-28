@@ -249,3 +249,48 @@ img {
     height: auto !important;
   }
 }
+
+
+/* ================================================================
+   SLIDESHOW IMAGE FIX (v2) — group photo and TOC images full-width
+   The previous fix targeted the image but not the column/container.
+   ================================================================ */
+
+@media (max-width: 767px) {
+
+  /* Force the Bootstrap column holding the group photo to 100% */
+  .col-md-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Remove any max-width home.css sets on .slideshow */
+  .slideshow,
+  .group-slideshow,
+  .toc-slideshow {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* The actual images */
+  .slideshow img,
+  .group-slideshow img,
+  .toc-slideshow img,
+  #slide-group,
+  #slide-pub {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* Stack the description paragraph below the full-width photo */
+  .col-md-4.paragraph-box {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 1rem 14px 0 !important;
+  }
+}
