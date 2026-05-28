@@ -1,38 +1,41 @@
 /* ================================================================
-   mobile.css — Venkataraman Lab  (v3 — clean rewrite)
+   mobile.css — Venkataraman Lab  (v5 — precision fixes)
    Save as: Assets/mobile.css
-   Link in every HTML page <head>, after home.css:
+   Add to every HTML page <head> after home.css:
      <link rel="stylesheet" href="Assets/mobile.css">
    ================================================================ */
 
-
-/* ── Global: prevent horizontal scroll, fix box model ────────── */
+/* ── Global ───────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-body { overflow-x: hidden; }
-img  { max-width: 100%; height: auto; }
-
 
 /* ================================================================
-   MOBILE ONLY  (phones and small tablets, < 768px)
+   MOBILE ONLY  (< 768px)
    ================================================================ */
 @media (max-width: 767px) {
 
-  /* ── 1. Page-wrapper: add breathing room on sides ─────────── */
-  .page-wrapper {
-    padding-left: 14px !important;
+  /* ── FIX 1 (ROOT CAUSE of publications overflow):
+         home.css sets 200px padding each side on .publications-col.
+         On a ~390px phone that leaves no room for text at all. ── */
+  .publications-col {
+    padding-left:  14px !important;
     padding-right: 14px !important;
   }
 
+  /* ── FIX 2 (ROOT CAUSE of meetings text vertical stacking):
+         home.css forces .row to flex-direction:row on < 600px,
+         which crushes every Bootstrap column to near-zero width.
+         Revert to Bootstrap's normal stacking behaviour. ───────── */
+  .row:not(.carousel-inner):not(.slideshow-row) {
+    flex-direction: column !important;
+  }
 
-  /* ── 2. Reduce excessive Bootstrap padding utilities ──────── */
-  .row.p-5  { padding: 0.75rem !important; }
-  .row.p-4  { padding: 0.75rem !important; }
-  .row.p-3  { padding: 0.5rem  !important; }
-  .pt-5     { padding-top: 1rem !important; }
-  .pb-5     { padding-bottom: 1rem !important; }
+  /* ── FIX 3: paragraph-box has fixed height:500px — remove it. ─ */
+  .paragraph-box {
+    height: auto !important;
+    padding-top: 1rem;
+  }
 
-
-  /* ── 3. Header: stack logo below title ───────────────────── */
+  /* ── FIX 4: Header — stack logo below title ──────────────────── */
   #header {
     flex-direction: column !important;
     text-align: center !important;
@@ -41,8 +44,6 @@ img  { max-width: 100%; height: auto; }
   #header .col-md-8,
   #header .col-md-4 {
     text-align: center !important;
-    /* Use col-12 width but DON'T use flex shorthand here;
-       only constrain the header columns, not all col-md-8 on page */
     width: 100% !important;
     max-width: 100% !important;
   }
@@ -54,45 +55,7 @@ img  { max-width: 100%; height: auto; }
     display: block;
   }
 
-
-  /* ── 4. Fix the publications-col class (used on BOTH
-          publications.html AND meetings.html).
-          home.css likely gives it a fixed or percentage width
-          that becomes too narrow on mobile. ─────────────────── */
-  .publications-col {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    flex: 0 0 100% !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-  }
-
-  /* Also fix the paragraph inside it */
-  .publications-col .paragraph,
-  .publications-col p,
-  .publications-col h3,
-  .publications-col h4,
-  .publications-col h5 {
-    max-width: 100% !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-    white-space: normal !important;
-  }
-
-
-  /* ── 5. Home page group photo — fill full width ───────────── */
-  /* Target only the slideshow column (parent of .group-slideshow),
-     NOT all col-md-8 elements (that was too broad before) */
-  .col-md-8:has(.group-slideshow) {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
-    padding: 0 !important;
-  }
-  /* Fallback for browsers without :has() support */
+  /* ── FIX 5: Home page group photo — fill full width ──────────── */
   .group-slideshow {
     width: 100% !important;
     max-width: 100% !important;
@@ -104,26 +67,12 @@ img  { max-width: 100%; height: auto; }
     height: auto !important;
     display: block !important;
   }
-  /* Description paragraph below photo */
-  .col-md-4.paragraph-box {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
-    padding: 1rem 14px 0 !important;
-  }
 
-
-  /* ── 6. Publications page TOC slideshow image ─────────────── */
-  /* NOTE: also change the HTML col-4 → col-10 col-md-4 mx-auto */
-  .toc-slideshow {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+  /* ── FIX 6: Publications TOC slideshow image ─────────────────── */
   .toc-slideshow img,
   #slide-pub {
     width: 100% !important;
     height: auto !important;
-    display: block !important;
   }
   /* Override bare col-4 if HTML hasn't been changed yet */
   .row.my-4 .col-4.text-center {
@@ -132,22 +81,13 @@ img  { max-width: 100%; height: auto; }
     margin: 0 auto !important;
   }
 
-
-  /* ── 7. Year navigation links — keep them from stacking ──── */
-  .paragraph a { white-space: nowrap; }
-
-
-  /* ── 8. Inline TOC images with missing px unit ────────────── */
-  .wsite-image img,
-  .wsite-image-border-thick img,
-  .wsite-image-border-none img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
+  /* ── FIX 7: Year navigation — keep year links from mid-breaking ─ */
+  .publications-col a {
+    white-space: nowrap;
+    display: inline;
   }
 
-
-  /* ── 9. Navigation bar hamburger styling ──────────────────── */
+  /* ── FIX 8: Navbar hamburger ─────────────────────────────────── */
   .navbar-toggler {
     border-color: rgba(255,255,255,0.5) !important;
   }
@@ -156,40 +96,3 @@ img  { max-width: 100%; height: auto; }
 
 }
 /* end @media (max-width: 767px) */
-
-
-/* ================================================================
-   PUBLICATIONS TEXT OVERFLOW FIX (v4 patch)
-   Targets every element inside publications-col to force wrapping.
-   The * selector beats any single-class rule in home.css.
-   ================================================================ */
-@media (max-width: 767px) {
-
-  /* Force every descendant to wrap — this wins over home.css
-     single-class rules regardless of their specificity */
-  .publications-col *:not(a) {
-    white-space: normal !important;
-    word-break:  break-word !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  /* Year-nav anchor links: keep them nowrap so years don't
-     split mid-number, but cap width so they still flex-wrap */
-  .publications-col a {
-    white-space: nowrap;
-    display: inline-block;
-    max-width: 100%;
-  }
-
-  /* Justified text + narrow column = overflow. Switch to left. */
-  .publications-col .paragraph,
-  .publications-col [style*="text-align:justify"],
-  .publications-col [style*="text-align: justify"] {
-    text-align: left !important;
-  }
-
-  /* Hard stop: nothing inside the column may exceed viewport */
-  .publications-col {
-    overflow-x: hidden !important;
-  }
-}
