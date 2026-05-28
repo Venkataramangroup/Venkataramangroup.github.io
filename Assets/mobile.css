@@ -156,3 +156,40 @@ img  { max-width: 100%; height: auto; }
 
 }
 /* end @media (max-width: 767px) */
+
+
+/* ================================================================
+   PUBLICATIONS TEXT OVERFLOW FIX (v4 patch)
+   Targets every element inside publications-col to force wrapping.
+   The * selector beats any single-class rule in home.css.
+   ================================================================ */
+@media (max-width: 767px) {
+
+  /* Force every descendant to wrap — this wins over home.css
+     single-class rules regardless of their specificity */
+  .publications-col *:not(a) {
+    white-space: normal !important;
+    word-break:  break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* Year-nav anchor links: keep them nowrap so years don't
+     split mid-number, but cap width so they still flex-wrap */
+  .publications-col a {
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  /* Justified text + narrow column = overflow. Switch to left. */
+  .publications-col .paragraph,
+  .publications-col [style*="text-align:justify"],
+  .publications-col [style*="text-align: justify"] {
+    text-align: left !important;
+  }
+
+  /* Hard stop: nothing inside the column may exceed viewport */
+  .publications-col {
+    overflow-x: hidden !important;
+  }
+}
