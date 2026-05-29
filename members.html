@@ -2,11 +2,6 @@
 <html lang="en">
 
 <head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="home.css">
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="data:,">
@@ -16,12 +11,11 @@
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <!-- Bootstrap 4 ONLY -->
+    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Assets/home.css">
-
     <link rel="stylesheet" href="Assets/mobile.css">
 
     <script type="text/javascript" src="Assets/home.js"></script>
@@ -29,7 +23,6 @@
     <title>Venkataraman Lab</title>
 
     <style>
-        /* Centers all main content */
         .page-wrapper {
             max-width: 1100px;
             margin: 0 auto;
@@ -38,43 +31,43 @@
 </head>
 
 <body>
+
     <!-- FULL-WIDTH HEADER STRIP -->
-<div class="base full-width-strip">
-    <div class="page-wrapper">
+    <div class="base full-width-strip">
+        <div class="page-wrapper">
+            <div class="row whitetext pt-5 align-items-center" id="header">
 
-        <div class="row whitetext pt-5 align-items-center" id="header">
-
-            <!-- LEFT COLUMN: Group name + institute text -->
-            <div class="col-md-8 text-left">
-                <div class="h1 mb-2">
-                    <a class="whitetext" href="index.html">Venkataraman Group</a>
+                <!-- LEFT: Group name + institute -->
+                <div class="col-md-8 text-left">
+                    <div class="h1 mb-2">
+                        <a class="whitetext" href="index.html">Venkataraman Group</a>
+                    </div>
+                    <div class="h4" style="line-height: 1.4;">
+                        Institute of Science and Technology Austria<br>
+                        <span style="font-size: 0.7em;">and</span><br>
+                        Applied Physics and Chemistry,<br>
+                        Columbia University
+                    </div>
                 </div>
 
-                <div class="h4" style="line-height: 1.4;">
-                    Institute of Science and Technology Austria<br>
-                    <span style="font-size: 0.7em;">and</span><br>
-                    Applied Physics and Chemistry,<br>
-                    Columbia University
+                <!-- RIGHT: Logo -->
+                <div class="col-md-4 text-right">
+                    <img src="Assets/Images/lab_logo.png"
+                         alt="Group Logo"
+                         style="max-height: 280px;">
                 </div>
-            </div>
 
-            <!-- RIGHT COLUMN: Logo -->
-            <div class="col-md-4 text-right">
-                <img src="Assets/Images/lab_logo.png"
-                     alt="Group Logo"
-                     style="max-height: 280px;">
             </div>
-
         </div>
-
     </div>
-</div>
-        <div class="row base pt-5 pb-5 justify-content-center">
+
+    <!-- NAVIGATION -->
+    <div class="row base pt-5 pb-5 justify-content-center">
         <div class="col-md-10">
             <nav class="navbar navbar-expand-lg navbar-dark mb-2">
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                        data-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -104,193 +97,194 @@
         </div>
     </div>
 
-
+    <!-- MAIN CONTENT -->
     <div class="page-wrapper">
 
-    <div class="row justify-content-center">
-        <div class="col-md-10 publications-col">
-            <div class="row pl-4">
-                <h3>Current Members</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-10 publications-col">
+
+                <div class="row pl-4">
+                    <h3>Current Members</h3>
+                </div>
+
+                <div class="row member-photo">
+                    <div class="col">
+                        <img class="img-fluid" src="Assets/Images/junfeng-lin_orig.jpg">
+                        <div class="d-inline-block">
+                            <strong>
+                                Junfeng Lin,<br>
+                                <span class="no-wrap">Ph.D., Institute of Chemistry, Chinese Academy of Sciences</span>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row member-photo">
+                    <div class="col">
+                        <img class="img-fluid" src="Assets/Images/parna_roy.jpg">
+                        <div class="d-inline-block">
+                            <strong>Parna Roy,<br>
+                            Ph.D., Indian Institue of Science</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row member-photo">
+                    <div class="col">
+                        <img class="img-fluid" src="Assets/Images/wanzhuo.jpg">
+                        <div class="d-inline-block">
+                            <strong>Wanzhuo Shi,<br>
+                            B.S., University of Science and Technology of China</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row member-photo">
+                    <div class="col">
+                        <img class="img-fluid" src="Assets/Images/emma-york.jpg">
+                        <div class="d-inline-block">
+                            <strong>Emma York,<br>
+                            B.S., Bates College</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row member-photo">
+                    <div class="col">
+                        <img class="img-fluid" src="Assets/Images/artem.jpg">
+                        <div class="d-inline-block">
+                            <strong>Artem Gulyaev<br>
+                            B.A., University of Oxford</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row member-photo">
+                    <div class="col">
+                        <img class="img-fluid" src="Assets/Images/jyotisman.jpg">
+                        <div class="d-inline-block">
+                            <strong>Jyotisman Hazarika<br>
+                            M.Sc., University of Hyderabad</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row member-photo">
+                    <div class="col">
+                        <img class="img-fluid" src="Assets/Images/rahul.jpg">
+                        <div class="d-inline-block">
+                            <strong>Rahul Meena,<br>
+                            Lab Manager/Technician<br>
+                            Ph.D., Université Libre de Bruxelles</strong>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            
-           <div class="row member-photo">
-  <div class="col">
-    <img class="img-fluid" src="Assets/Images/junfeng-lin_orig.jpg">
-    <div class="d-inline-block">
-      <strong>
-        Junfeng Lin, <br>
-        <span class="no-wrap">Ph.D., Institute of Chemistry, Chinese Academy of Sciences</span>
-      </strong>
+        </div>
+
+        <!-- FORMER MEMBERS -->
+        <div class="row p-2 pb-5 justify-content-center">
+            <section class="former-members">
+                <div class="single-column">
+
+                    <h4>Former Graduate Students</h4>
+                    <ul class="member-list">
+                        <li><span class="no-wrap">Woojung Lee, Ph.D. (March 2025) — Investment Analyst, Hax, New York</span></li>
+                        <li><span class="no-wrap">Liang Li, Ph.D. (August 2024) — Postdoc, MIT</span></li>
+                        <li><span class="no-wrap">Claudia Prindle, Ph.D. (July 2024) — Endevica Bio, Chicago</span></li>
+                        <li><span class="no-wrap">Angela Paoletta, Ph.D. (May 2024) — Lecturer in Chemistry, Barnard College</span></li>
+                        <li><span class="no-wrap">Julia Greenwald, Ph.D. (July 2022) — ARPA‑E Fellow</span></li>
+                        <li><span class="no-wrap">Suman Gunasekaran, Ph.D. (June 2021) — Post‑Doc, Cornell University</span></li>
+                        <li><span class="no-wrap">Rachel Starr, Ph.D. (June 2021)</span></li>
+                        <li><span class="no-wrap">Tianren Fu, Ph.D. (May 2021) — Robinhood</span></li>
+                        <li><span class="no-wrap">E‑Dean Fung, Ph.D. (August 2020) — Amazon</span></li>
+                        <li><span class="no-wrap">Haixing Li, Ph.D. (April 2016) — Assistant Professor, Hong Kong</span></li>
+                        <li><span class="no-wrap">Olgun Adak, Ph.D. (October 2015)</span></li>
+                        <li><span class="no-wrap">Brian Capozzi, Ph.D. (May 2015) — Data Scientist, Macy's</span></li>
+                        <li><span class="no-wrap">Emma Dell, Ph.D. (March 2015)</span></li>
+                        <li><span class="no-wrap">Arunabh Batra, Ph.D. (May 2014) — Wayfair</span></li>
+                        <li><span class="no-wrap">Jonathan Widawsky, Ph.D. (May 2013) — Quantitative Engineer, Pragma Securities</span></li>
+                        <li><span class="no-wrap">Sriharsha Aradhya, Ph.D. (June 2013) — Western Digital</span></li>
+                        <li><span class="no-wrap">Michael Frei, Ph.D. (December 2011) — Consulting, McKinsey & Co.</span></li>
+                        <li><span class="no-wrap">Masha Kamenetska, Ph.D. (December 2011) — Assistant Professor, Boston University</span></li>
+                    </ul>
+
+                    <h4>Former Post‑Doctoral Researchers</h4>
+                    <ul class="member-list">
+                        <li><span class="no-wrap">Boyuan Zhang — Assistant Professor, Fairfield University</span></li>
+                        <li><span class="no-wrap">Cedric Schaack — Assistant Professor, Wake Forest University</span></li>
+                        <li><span class="no-wrap">Nick Orchanian — Associate Research Scientist, Columbia University</span></li>
+                        <li><span class="no-wrap">Austin Evans — Assistant Professor, University of Florida</span></li>
+                        <li><span class="no-wrap">Yaping Zang — Assistant Professor, ICAS, Beijing</span></li>
+                        <li><span class="no-wrap">Giacomo Lovat — Senior Data Scientist, IBM</span></li>
+                        <li><span class="no-wrap">Michael Inkpen — Assistant Professor, USC</span></li>
+                        <li><span class="no-wrap">Carlos Arroyo — Professor, Universidad de las Fuerzas Armadas ESPE</span></li>
+                        <li><span class="no-wrap">Taekyeong Kim — Assistant Professor, Hankuk University, Korea</span></li>
+                        <li><span class="no-wrap">Hector Vazquez — Senior Scientist, Institute of Physics, Prague</span></li>
+                        <li><span class="no-wrap">Eek Huisman — Post‑doc, University of Groningen</span></li>
+                        <li><span class="no-wrap">Max Koentopp — Scientist, Q‑Cells SE, Germany</span></li>
+                    </ul>
+
+                    <h4>Former Undergraduates</h4>
+                    <ul class="member-list">
+                        <li><span class="no-wrap">2023 — Zahidul Zahin — Lehman College, New York</span></li>
+                        <li><span class="no-wrap">2022 — Daniel Cheng — Columbia College</span></li>
+                        <li><span class="no-wrap">2022 — Zainab Adula — Columbia Engineering</span></li>
+                        <li><span class="no-wrap">2020–2022 — Sophia Guizzo — Columbia Engineering</span></li>
+                        <li><span class="no-wrap">2020–2022 — Iris Liu — Barnard College</span></li>
+                        <li><span class="no-wrap">2020 — Francesca Abulencia — Emory University</span></li>
+                        <li><span class="no-wrap">2019–2021 — Isabel Hernandez — Barnard College</span></li>
+                        <li><span class="no-wrap">2018–2021 — Michael Van Duinen — Columbia College</span></li>
+                        <li><span class="no-wrap">2019–2020 — Jang Choi — Columbia University</span></li>
+                        <li><span class="no-wrap">2017–2019 — Caravaggio Caniglia — Columbia University</span></li>
+                        <li><span class="no-wrap">2015–2016 — Nilam Patel — Barnard College</span></li>
+                        <li><span class="no-wrap">2013–2015 — Camille Houferak — Barnard College</span></li>
+                        <li><span class="no-wrap">2014 — Maksim Grinchenko — Columbia University</span></li>
+                        <li><span class="no-wrap">2014 — Ingrid Stolt — Bard College</span></li>
+                        <li><span class="no-wrap">2013 — Ang Li — Columbia SEAS</span></li>
+                        <li><span class="no-wrap">2012–2013 — Dan Margulies — Rabi Scholar, Columbia University</span></li>
+                        <li><span class="no-wrap">2012–2013 — Andy Joe — Cornell University</span></li>
+                        <li><span class="no-wrap">2012 — Tanay Doctor — Columbia SEAS</span></li>
+                        <li><span class="no-wrap">2012 — Rachel Brodsky — Barnard College</span></li>
+                        <li><span class="no-wrap">2011 — Birger Hennings — Columbia SEAS</span></li>
+                        <li><span class="no-wrap">2011 — Karis Hanson — Scripps College</span></li>
+                        <li><span class="no-wrap">2009–2011 — Radha Parameswaran — Barnard College</span></li>
+                        <li><span class="no-wrap">2008–2009 — Valla Fatemi — Columbia SEAS</span></li>
+                        <li><span class="no-wrap">2008 — Nichole Sullivan — Illinois State University</span></li>
+                    </ul>
+
+                    <h4>Visitors</h4>
+                    <ul class="member-list">
+                        <li><span class="no-wrap">2018 — Nils Rotthowe — Konstanz University</span></li>
+                        <li><span class="no-wrap">2017 — Ingrid Ponce — Chile</span></li>
+                        <li><span class="no-wrap">2016 — Julian Stamp — Konstanz University</span></li>
+                        <li><span class="no-wrap">2015 — Anders Borges — University of Copenhagen</span></li>
+                        <li><span class="no-wrap">2014–2015 — Andras Magyarkuti — Fulbright Scholar</span></li>
+                        <li><span class="no-wrap">2014–2015 — Simon Henn — Konstanz University</span></li>
+                    </ul>
+
+                </div>
+            </section>
+        </div>
+
     </div>
-  </div>
-</div>
-            
-          <div class="row member-photo">
-                <div class="col">
-                    <img class="img-fluid" src="Assets/Images/parna_roy.jpg">
-                    <div class="d-inline-block">
-                        <strong>Parna Roy, <br>
-                        Ph.D., Indian Institue of Science</strong>
-                    </div>
-                </div>
+
+    <!-- FOOTER -->
+    <div class="base full-width-strip p-4">
+        <div class="page-wrapper">
+            <span class="font-weight-bold">Contact:</span>
+            Latha Venkataraman, Institute of Science and Technology Austria.
+            <br>Am Campus 1, 3400 Klosterneuburg, Austria
+            <br>Phone: +43 2243 9000 2352; email: latha.venkataraman(at)ist.ac.at
+            <div>
+                <img class="img-fluid pt-3" src="Assets/Images/istaimage_orig.jpg">
             </div>
- <div class="row member-photo">
-                <div class="col">
-                    <img class="img-fluid" src="Assets/Images/wanzhuo.jpg">
-                    <div class="d-inline-block">
-                        <strong>Wanzhuo Shi, <br>
-                        B.S., University of Science and Technology of China</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="row member-photo">
-                <div class="col">
-                    <img class="img-fluid" src="Assets/Images/emma-york.jpg">
-                    <div class="d-inline-block">
-                       <strong> Emma York, <br>
-                        B.S., Bates College</strong>
-                    </div>
-                </div>
-            </div>
-             <div class="row member-photo">
-                <div class="col">
-                    <img class="img-fluid" src="Assets/Images/artem.jpg">
-                    <div class="d-inline-block">
-                       <strong> Artem Gulyaev <br>
-                        B.A., University of Oxford</strong>
-                    </div>
-                </div>
-            </div>
-            
-             <div class="row member-photo">
-                <div class="col">
-                    <img class="img-fluid" src="Assets/Images/jyotisman.jpg">
-                    <div class="d-inline-block">
-                       <strong> Jyotisman Hazarika <br>
-                        M.Sc., University of Hyderabad</strong>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row member-photo">
-                <div class="col">
-                    <img class="img-fluid" src="Assets/Images/rahul.jpg">
-                    <div class="d-inline-block">
-                        <strong> Rahul Meena, <br> Lab Manager/Technician <br> Ph.D., Université Libre de Bruxelles </strong>
-                    </div>
-                </div>
-            </div>
-
-                                                                      </div>
-    </div>
-   <div class="page-wrapper">
-
-    <div class="row p-2 pb-5 justify-content-center">
-
-          <section class="former-members">
-
-  <div class="single-column">
-
-    <h4>Former Graduate Students</h4>
-    <ul class="member-list">
-      <li><span class="nowrap">Woojung Lee, Ph.D. (March 2025) — Investment Analyst, Hax, New York</span></li>
-      <li><span class="nowrap">Liang Li, Ph.D. (August 2024) — Postdoc, MIT</span></li>
-      <li><span class="nowrap">Claudia Prindle, Ph.D. (July 2024) — Endevica Bio, Chicago</span></li>
-      <li><span class="nowrap">Angela Paoletta, Ph.D. (May 2024) — Lecturer in Chemistry, Barnard College</span></li>
-      <li><span class="nowrap">Julia Greenwald, Ph.D. (July 2022) — ARPA‑E Fellow</span></li>
-      <li><span class="nowrap">Suman Gunasekaran, Ph.D. (June 2021) — Post‑Doc, Cornell University</span></li>
-      <li><span class="nowrap">Rachel Starr, Ph.D. (June 2021)</span></li>
-      <li><span class="nowrap">Tianren Fu, Ph.D. (May 2021) — Robinhood</span></li>
-      <li><span class="nowrap">E‑Dean Fung, Ph.D. (August 2020) — Amazon</span></li>
-      <li><span class="nowrap">Haixing Li, Ph.D. (April 2016) — Assistant Professor, Hong Kong</span></li>
-      <li><span class="nowrap">Olgun Adak, Ph.D. (October 2015)</span></li>
-      <li><span class="nowrap">Brian Capozzi, Ph.D. (May 2015) — Data Scientist, Macy's</span></li>
-      <li><span class="nowrap">Emma Dell, Ph.D. (March 2015)</span></li>
-      <li><span class="nowrap">Arunabh Batra, Ph.D. (May 2014) — Wayfair</span></li>
-      <li><span class="nowrap">Jonathan Widawsky, Ph.D. (May 2013) — Quantitative Engineer, Pragma Securities</span></li>
-      <li><span class="nowrap">Sriharsha Aradhya, Ph.D. (June 2013) — Western Digital</span></li>
-      <li><span class="nowrap">Michael Frei, Ph.D. (December 2011) — Consulting, McKinsey & Co.</span></li>
-      <li><span class="nowrap">Masha Kamenetska, Ph.D. (December 2011) — Assistant Professor, Boston University</span></li>
-    </ul>
-
-   <h4>Former Post‑Doctoral Researchers</h4>
-    <ul class="member-list">
-      <li><span class="nowrap">Boyuan Zhang — Assistant Professor, Fairfield University</span></li>
-      <li><span class="nowrap">Cedric Schaack — Assistant Professor, Wake Forest University</span></li>
-      <li><span class="nowrap">Nick Orchanian — Associate Research Scientist, Columbia University</span></li>
-      <li><span class="nowrap">Austin Evans — Assistant Professor, University of Florida</span></li>
-      <li><span class="nowrap">Yaping Zang — Assistant Professor, ICAS, Beijing</span></li>
-      <li><span class="nowrap">Giacomo Lovat — Senior Data Scientist, IBM</span></li>
-      <li><span class="nowrap">Michael Inkpen — Assistant Professor, USC</span></li>
-      <li><span class="nowrap">Carlos Arroyo — Professor, Universidad de las Fuerzas Armadas ESPE</span></li>
-      <li><span class="nowrap">Taekyeong Kim — Assistant Professor, Hankuk University, Korea</span></li>
-      <li><span class="nowrap">Hector Vazquez — Senior Scientist, Institute of Physics, Prague</span></li>
-      <li><span class="nowrap">Eek Huisman — Post‑doc, University of Groningen</span></li>
-      <li><span class="nowrap">Max Koentopp — Scientist, Q‑Cells SE, Germany</span></li>
-    </ul>
-
-       <h4>Former Undergraduates</h4>
-    <ul class="member-list">
-      <li><span class="nowrap">2023 — Zahidul Zahin — Lehman College, New York</span></li>
-      <li><span class="nowrap">2022 — Daniel Cheng — Columbia College</span></li>
-      <li><span class="nowrap">2022 — Zainab Adula — Columbia Engineering</span></li>
-      <li><span class="nowrap">2020–2022 — Sophia Guizzo — Columbia Engineering</span></li>
-      <li><span class="nowrap">2020–2022 — Iris Liu — Barnard College</span></li>
-      <li><span class="nowrap">2020 — Francesca Abulencia — Emory University</span></li>
-      <li><span class="nowrap">2019–2021 — Isabel Hernandez — Barnard College</span></li>
-      <li><span class="nowrap">2018–2021 — Michael Van Duinen — Columbia College</span></li>
-      <li><span class="nowrap">2019–2020 — Jang Choi — Columbia University</span></li>
-      <li><span class="nowrap">2017–2019 — Caravaggio Caniglia — Columbia University</span></li>
-      <li><span class="nowrap">2015–2016 — Nilam Patel — Barnard College</span></li>
-      <li><span class="nowrap">2013–2015 — Camille Houferak — Barnard College</span></li>
-      <li><span class="nowrap">2014 — Maksim Grinchenko — Columbia University</span></li>
-      <li><span class="nowrap">2014 — Ingrid Stolt — Bard College</span></li>
-      <li><span class="nowrap">2013 — Ang Li — Columbia SEAS</span></li>
-      <li><span class="nowrap">2012–2013 — Dan Margulies — Rabi Scholar, Columbia University</span></li>
-      <li><span class="nowrap">2012–2013 — Andy Joe — Cornell University</span></li>
-      <li><span class="nowrap">2012 — Tanay Doctor — Columbia SEAS</span></li>
-      <li><span class="nowrap">2012 — Rachel Brodsky — Barnard College</span></li>
-      <li><span class="nowrap">2011 — Birger Hennings — Columbia SEAS</span></li>
-      <li><span class="nowrap">2011 — Karis Hanson — Scripps College</span></li>
-      <li><span class="nowrap">2009–2011 — Radha Parameswaran — Barnard College</span></li>
-      <li><span class="nowrap">2008–2009 — Valla Fatemi — Columbia SEAS</span></li>
-      <li><span class="nowrap">2008 — Nichole Sullivan — Illinois State University</span></li>
-    </ul>
-
-    <h4>Visitors</h4>
-    <ul class="member-list">
-      <li><span class="nowrap">2018 — Nils Rotthowe — Konstanz University</span></li>
-      <li><span class="nowrap">2017 — Ingrid Ponce — Chile</span></li>
-      <li><span class="nowrap">2016 — Julian Stamp — Konstanz University</span></li>
-      <li><span class="nowrap">2015 — Anders Borges — University of Copenhagen</span></li>
-      <li><span class="nowrap">2014–2015 — Andras Magyarkuti — Fulbright Scholar</span></li>
-      <li><span class="nowrap">2014–2015 — Simon Henn — Konstanz University</span></li>
-    </ul>
-
-  </div>
-
-</section>
-
-
         </div>
     </div>
-   </div>
-</div>
-</div>
 
-<div class="base full-width-strip p-4">
-    <div class="page-wrapper">
-        <span class="font-weight-bold">Contact:</span>
-        Latha Venkataraman, Institute of Science and Technology Austria.
-        <br>Am Campus 1, 3400 Klosterneuburg, Austria
-        <br>Phone: +43 2243 9000 2352; email: latha.venkataraman(at)ist.ac.at
-
-        <div>
-            <img class="img-fluid pt-3" src="Assets/Images/istaimage_orig.jpg">
-        </div>
-    </div>
-</div>
+    <!-- Bootstrap 4 JS (FIXES THE HAMBURGER MENU) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
