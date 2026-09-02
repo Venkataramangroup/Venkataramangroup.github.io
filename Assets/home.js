@@ -48,12 +48,73 @@ const pubCaptions = [
 ];
 
 let pubIndex = 0;
+let pubTimer = null;          // ADDED FOR CONTROLS
+let pubPlaying = true;        // ADDED FOR CONTROLS
+const PUB_INTERVAL_MS = 3000; // ADDED FOR CONTROLS
 
-setInterval(() => {
+// MODIFIED FOR CONTROLS: pulled the "show a slide" logic into its own function
+// so buttons can call it directly instead of only the interval calling it.
+function showPubSlide(index) {
+  document.getElementById("slide-pub").src = pubImages[index];
+  document.getElementById("toc-caption").textContent = pubCaptions[index];
+}
+
+// MODIFIED FOR CONTROLS: renamed/refactored so we can start/stop it on demand
+function startPubSlideshow() {
+  if (pubTimer) return; // already running
+  pubTimer = setInterval(() => {
+    pubIndex = (pubIndex + 1) % pubImages.length;
+    showPubSlide(pubIndex);
+  }, PUB_INTERVAL_MS);
+}
+
+function stopPubSlideshow() {           // ADDED FOR CONTROLS
+  clearInterval(pubTimer);
+  pubTimer = null;
+}
+
+function nextPubSlide() {               // ADDED FOR CONTROLS
   pubIndex = (pubIndex + 1) % pubImages.length;
-  document.getElementById("slide-pub").src = pubImages[pubIndex];
-  document.getElementById("toc-caption").textContent = pubCaptions[pubIndex];
-}, 3000);
+  showPubSlide(pubIndex);
+}
+
+function prevPubSlide() {               // ADDED FOR CONTROLS
+  pubIndex = (pubIndex - 1 + pubImages.length) % pubImages.length;
+  showPubSlide(pubIndex);
+}
+
+// ADDED FOR CONTROLS: wire up the buttons once the page has loaded
+document.addEventListener("DOMContentLoaded", () => {
+  showPubSlide(pubIndex); // show first slide immediately (with caption)
+  startPubSlideshow();
+
+  const btnPrev = document.getElementById("pub-prev");
+  const btnNext = document.getElementById("pub-next");
+  const btnPlayPause = document.getElementById("pub-play-pause");
+
+  btnPrev.addEventListener("click", () => {
+    stopPubSlideshow();
+    prevPubSlide();
+    if (pubPlaying) startPubSlideshow(); // resume auto-play if it was on
+  });
+
+  btnNext.addEventListener("click", () => {
+    stopPubSlideshow();
+    nextPubSlide();
+    if (pubPlaying) startPubSlideshow();
+  });
+
+  btnPlayPause.addEventListener("click", () => {
+    pubPlaying = !pubPlaying;
+    if (pubPlaying) {
+      startPubSlideshow();
+      btnPlayPause.textContent = "Pause";
+    } else {
+      stopPubSlideshow();
+      btnPlayPause.textContent = "Play";
+    }
+  });
+});
 
 
 
