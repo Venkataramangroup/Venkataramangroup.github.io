@@ -74,7 +74,7 @@
 .paragraph-box {
     text-align: justify;        
     display: flex;
-    align-items: center;        
+    align-items: flex-start;        
 }
 .toc-caption {
     margin-top: 8px;
