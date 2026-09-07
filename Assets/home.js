@@ -9,11 +9,37 @@ const groupImages = [
  ];
 
 let groupIndex = 0;
+let groupTimer = null;          // ADDED FOR CONTROLS
+let groupPlaying = true;        // ADDED FOR CONTROLS
+const GROUP_INTERVAL_MS = 3000; // ADDED FOR CONTROLS
 
-setInterval(() => {
+// MODIFIED FOR CONTROLS: pulled "show a slide" into its own function
+function showGroupSlide(index) {
+  document.getElementById("slide-group").src = groupImages[index];
+}
+
+function startGroupSlideshow() {        // MODIFIED FOR CONTROLS
+  if (groupTimer) return;
+  groupTimer = setInterval(() => {
+    groupIndex = (groupIndex + 1) % groupImages.length;
+    showGroupSlide(groupIndex);
+  }, GROUP_INTERVAL_MS);
+}
+
+function stopGroupSlideshow() {         // ADDED FOR CONTROLS
+  clearInterval(groupTimer);
+  groupTimer = null;
+}
+
+function nextGroupSlide() {             // ADDED FOR CONTROLS
   groupIndex = (groupIndex + 1) % groupImages.length;
-  document.getElementById("slide-group").src = groupImages[groupIndex];
-}, 3000);
+  showGroupSlide(groupIndex);
+}
+
+function prevGroupSlide() {             // ADDED FOR CONTROLS
+  groupIndex = (groupIndex - 1 + groupImages.length) % groupImages.length;
+  showGroupSlide(groupIndex);
+}
 
 
 
@@ -84,9 +110,9 @@ function prevPubSlide() {               // ADDED FOR CONTROLS
   showPubSlide(pubIndex);
 }
 
-// ADDED FOR CONTROLS: wire up the buttons once the page has loaded
 document.addEventListener("DOMContentLoaded", () => {
-  showPubSlide(pubIndex); // show first slide immediately (with caption)
+  // --- existing pub slideshow setup ---
+  showPubSlide(pubIndex);
   startPubSlideshow();
 
   const btnPrev = document.getElementById("pub-prev");
@@ -96,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   btnPrev.addEventListener("click", () => {
     stopPubSlideshow();
     prevPubSlide();
-    if (pubPlaying) startPubSlideshow(); // resume auto-play if it was on
+    if (pubPlaying) startPubSlideshow();
   });
 
   btnNext.addEventListener("click", () => {
@@ -113,6 +139,37 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       stopPubSlideshow();
       btnPlayPause.textContent = "Play";
+    }
+  });
+
+  // ADDED FOR CONTROLS: group slideshow setup (mirrors the pub block above)
+  showGroupSlide(groupIndex);
+  startGroupSlideshow();
+
+  const btnGroupPrev = document.getElementById("group-prev");
+  const btnGroupNext = document.getElementById("group-next");
+  const btnGroupPlayPause = document.getElementById("group-play-pause");
+
+  btnGroupPrev.addEventListener("click", () => {
+    stopGroupSlideshow();
+    prevGroupSlide();
+    if (groupPlaying) startGroupSlideshow();
+  });
+
+  btnGroupNext.addEventListener("click", () => {
+    stopGroupSlideshow();
+    nextGroupSlide();
+    if (groupPlaying) startGroupSlideshow();
+  });
+
+  btnGroupPlayPause.addEventListener("click", () => {
+    groupPlaying = !groupPlaying;
+    if (groupPlaying) {
+      startGroupSlideshow();
+      btnGroupPlayPause.textContent = "Pause";
+    } else {
+      stopGroupSlideshow();
+      btnGroupPlayPause.textContent = "Play";
     }
   });
 });
