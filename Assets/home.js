@@ -74,6 +74,40 @@ const pubCaptions = [
   "Li et al, JACS 2015"
 ];
 
+// --- GROUP SLIDESHOW ---
+let groupIndex = 0;
+let groupTimer = null;          // ADDED FOR CONTROLS
+let groupPlaying = true;        // ADDED FOR CONTROLS
+const GROUP_INTERVAL_MS = 3000; // ADDED FOR CONTROLS
+
+function showGroupSlide(index) {                // MODIFIED FOR CONTROLS
+  document.getElementById("slide-group").src = groupImages[index];
+}
+
+function startGroupSlideshow() {                // MODIFIED FOR CONTROLS
+  if (groupTimer) return; // already running
+  groupTimer = setInterval(() => {
+    groupIndex = (groupIndex + 1) % groupImages.length;
+    showGroupSlide(groupIndex);
+  }, GROUP_INTERVAL_MS);
+}
+
+function stopGroupSlideshow() {                 // ADDED FOR CONTROLS
+  clearInterval(groupTimer);
+  groupTimer = null;
+}
+
+function nextGroupSlide() {                     // ADDED FOR CONTROLS
+  groupIndex = (groupIndex + 1) % groupImages.length;
+  showGroupSlide(groupIndex);
+}
+
+function prevGroupSlide() {                     // ADDED FOR CONTROLS
+  groupIndex = (groupIndex - 1 + groupImages.length) % groupImages.length;
+  showGroupSlide(groupIndex);
+}
+
+// --- PUBLICATIONS SLIDESHOW ---
 let pubIndex = 0;
 let pubTimer = null;          // ADDED FOR CONTROLS
 let pubPlaying = true;        // ADDED FOR CONTROLS
@@ -110,68 +144,74 @@ function prevPubSlide() {               // ADDED FOR CONTROLS
   showPubSlide(pubIndex);
 }
 
+// --- WIRE UP BUTTONS ONCE PAGE LOADS ---
 document.addEventListener("DOMContentLoaded", () => {
-  // --- existing pub slideshow setup ---
-  showPubSlide(pubIndex);
-  startPubSlideshow();
 
+  // --- pub slideshow controls (only wired up if these buttons exist on this page) ---
   const btnPrev = document.getElementById("pub-prev");
   const btnNext = document.getElementById("pub-next");
   const btnPlayPause = document.getElementById("pub-play-pause");
 
-  btnPrev.addEventListener("click", () => {
-    stopPubSlideshow();
-    prevPubSlide();
-    if (pubPlaying) startPubSlideshow();
-  });
+  if (btnPrev && btnNext && btnPlayPause) {   // ADDED FOR CONTROLS: guard so index.html doesn't crash
+    showPubSlide(pubIndex);
+    startPubSlideshow();
 
-  btnNext.addEventListener("click", () => {
-    stopPubSlideshow();
-    nextPubSlide();
-    if (pubPlaying) startPubSlideshow();
-  });
-
-  btnPlayPause.addEventListener("click", () => {
-    pubPlaying = !pubPlaying;
-    if (pubPlaying) {
-      startPubSlideshow();
-      btnPlayPause.textContent = "Pause";
-    } else {
+    btnPrev.addEventListener("click", () => {
       stopPubSlideshow();
-      btnPlayPause.textContent = "Play";
-    }
-  });
+      prevPubSlide();
+      if (pubPlaying) startPubSlideshow();
+    });
 
-  // ADDED FOR CONTROLS: group slideshow setup (mirrors the pub block above)
-  showGroupSlide(groupIndex);
-  startGroupSlideshow();
+    btnNext.addEventListener("click", () => {
+      stopPubSlideshow();
+      nextPubSlide();
+      if (pubPlaying) startPubSlideshow();
+    });
 
+    btnPlayPause.addEventListener("click", () => {
+      pubPlaying = !pubPlaying;
+      if (pubPlaying) {
+        startPubSlideshow();
+        btnPlayPause.textContent = "Pause";
+      } else {
+        stopPubSlideshow();
+        btnPlayPause.textContent = "Play";
+      }
+    });
+  }
+
+  // --- group slideshow controls (only wired up if these buttons exist on this page) ---
   const btnGroupPrev = document.getElementById("group-prev");
   const btnGroupNext = document.getElementById("group-next");
   const btnGroupPlayPause = document.getElementById("group-play-pause");
 
-  btnGroupPrev.addEventListener("click", () => {
-    stopGroupSlideshow();
-    prevGroupSlide();
-    if (groupPlaying) startGroupSlideshow();
-  });
+  if (btnGroupPrev && btnGroupNext && btnGroupPlayPause) {   // ADDED FOR CONTROLS: guard so publications.html doesn't crash
+    showGroupSlide(groupIndex);
+    startGroupSlideshow();
 
-  btnGroupNext.addEventListener("click", () => {
-    stopGroupSlideshow();
-    nextGroupSlide();
-    if (groupPlaying) startGroupSlideshow();
-  });
-
-  btnGroupPlayPause.addEventListener("click", () => {
-    groupPlaying = !groupPlaying;
-    if (groupPlaying) {
-      startGroupSlideshow();
-      btnGroupPlayPause.textContent = "Pause";
-    } else {
+    btnGroupPrev.addEventListener("click", () => {
       stopGroupSlideshow();
-      btnGroupPlayPause.textContent = "Play";
-    }
-  });
+      prevGroupSlide();
+      if (groupPlaying) startGroupSlideshow();
+    });
+
+    btnGroupNext.addEventListener("click", () => {
+      stopGroupSlideshow();
+      nextGroupSlide();
+      if (groupPlaying) startGroupSlideshow();
+    });
+
+    btnGroupPlayPause.addEventListener("click", () => {
+      groupPlaying = !groupPlaying;
+      if (groupPlaying) {
+        startGroupSlideshow();
+        btnGroupPlayPause.textContent = "Pause";
+      } else {
+        stopGroupSlideshow();
+        btnGroupPlayPause.textContent = "Play";
+      }
+    });
+  }
 });
 
 
