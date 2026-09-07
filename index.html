@@ -119,10 +119,16 @@
     <div class="row p-3 justify-content-center">
 
         <div class="col-md-8">
-            <div class="slideshow group-slideshow">
-                <img id="slide-group" src="Assets/Images/group-photo1.jpg" class="img-fluid">
-            </div>
-        </div>
+            <div class="slideshow ...">
+    <img id="slide-group" src="Assets/Images/group-photo1.jpg" class="img-fluid">
+
+    <!-- ADDED FOR CONTROLS -->
+    <div class="toc-controls mt-2">
+        <button id="group-prev" class="btn btn-sm btn-outline-secondary" type="button">‹ Prev</button>
+        <button id="group-play-pause" class="btn btn-sm btn-outline-secondary" type="button">Pause</button>
+        <button id="group-next" class="btn btn-sm btn-outline-secondary" type="button">Next ›</button>
+    </div>
+</div>
 
         <div class="col-md-4 paragraph-box">
             We measure fundamental properties of single molecule devices, seeking to understand the interplay of
