@@ -5,6 +5,7 @@ const groupImages = [
   "Assets/Images/group-photo6.jpg",
   "Assets/Images/group-photo7.jpg",
   "Assets/Images/group-photo8.jpg",
+  "Assets/Images/group-photo9.jpg",
  ];
 
 let groupIndex = 0;
