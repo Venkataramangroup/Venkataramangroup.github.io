@@ -73,7 +73,6 @@
 
 .paragraph-box {
     text-align: justify;        
-    height: 500px;              
     display: flex;
     align-items: center;        
 }
