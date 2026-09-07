@@ -1,3 +1,4 @@
+// --- IMAGE DATA ---
 const groupImages = [
   "Assets/Images/group-photo1.jpg",
   "Assets/Images/group-photo3.jpg",
@@ -6,43 +7,7 @@ const groupImages = [
   "Assets/Images/group-photo7.jpg",
   "Assets/Images/group-photo8.jpg",
   "Assets/Images/group-photo9.jpg",
- ];
-
-let groupIndex = 0;
-let groupTimer = null;          // ADDED FOR CONTROLS
-let groupPlaying = true;        // ADDED FOR CONTROLS
-const GROUP_INTERVAL_MS = 3000; // ADDED FOR CONTROLS
-
-// MODIFIED FOR CONTROLS: pulled "show a slide" into its own function
-function showGroupSlide(index) {
-  document.getElementById("slide-group").src = groupImages[index];
-}
-
-function startGroupSlideshow() {        // MODIFIED FOR CONTROLS
-  if (groupTimer) return;
-  groupTimer = setInterval(() => {
-    groupIndex = (groupIndex + 1) % groupImages.length;
-    showGroupSlide(groupIndex);
-  }, GROUP_INTERVAL_MS);
-}
-
-function stopGroupSlideshow() {         // ADDED FOR CONTROLS
-  clearInterval(groupTimer);
-  groupTimer = null;
-}
-
-function nextGroupSlide() {             // ADDED FOR CONTROLS
-  groupIndex = (groupIndex + 1) % groupImages.length;
-  showGroupSlide(groupIndex);
-}
-
-function prevGroupSlide() {             // ADDED FOR CONTROLS
-  groupIndex = (groupIndex - 1 + groupImages.length) % groupImages.length;
-  showGroupSlide(groupIndex);
-}
-
-
-
+];
 
 const pubImages = [
   "Assets/Images/TOC_pub1.png",
@@ -58,7 +23,6 @@ const pubImages = [
   "Assets/Images/TOC_pub11.png",
   "Assets/Images/TOC_pub12.png"
 ];
-
 const pubCaptions = [
   "Li et al, JACS 2025",
   "Greenwald et al, Nature Nano 2021",
@@ -213,16 +177,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
